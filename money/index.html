@@ -8,33 +8,66 @@
 <body>
 
     <form>
-        <label for="familyName">Family Name:</label>
-        <input type="text" id="familyName" name="familyName" oninput="updateFamily()">
+        <!-- First Family and Amount -->
+        <label for="familyName1">Family Name 1:</label>
+        <input type="text" id="familyName1" name="familyName1" oninput="updateFamily1()">
         <br><br>
 
-        <label for="amount">Amount of Money:</label>
-        <input type="text" id="amount" name="amount" oninput="updateAmount()">
+        <label for="amount1">Amount of Money for Family 1:</label>
+        <input type="text" id="amount1" name="amount1" oninput="updateAmount1()">
+        <br><br>
+
+        <!-- Second Family and Amount -->
+        <label for="familyName2">Family Name 2:</label>
+        <input type="text" id="familyName2" name="familyName2" oninput="updateFamily2()">
+        <br><br>
+
+        <label for="amount2">Amount of Money for Family 2:</label>
+        <input type="text" id="amount2" name="amount2" oninput="updateAmount2()">
     </form>
 
-    <p>Family Name: <span id="displayFamilyName">[Enter Family Name]</span></p>
-    <p>Entered Amount: $<span id="displayAmount">0.00</span></p>
-    <p>Doubled Amount: $<span id="displayDoubledAmount">0.00</span></p>
+    <h2>Bank Account 1</h2>
+    <p>Family Name: <span id="displayFamilyName1">[Enter Family Name 1]</span></p>
+    <p>Entered Amount: $<span id="displayAmount1">0.00</span></p>
+    <p>Doubled Amount: $<span id="displayDoubledAmount1">0.00</span></p>
+
+    <h2>Bank Account 2</h2>
+    <p>Family Name: <span id="displayFamilyName2">[Enter Family Name 2]</span></p>
+    <p>Entered Amount: $<span id="displayAmount2">0.00</span></p>
+    <p>Doubled Amount: $<span id="displayDoubledAmount2">0.00</span></p>
 
     <script>
-        function updateFamily() {
-            var familyName = document.getElementById('familyName').value;
-            document.getElementById('displayFamilyName').innerText = familyName;
+        function updateFamily1() {
+            var familyName1 = document.getElementById('familyName1').value;
+            document.getElementById('displayFamilyName1').innerText = familyName1;
         }
 
-        function updateAmount() {
-            var amount = parseFloat(document.getElementById('amount').value);
-            if (isNaN(amount)) {
-                amount = 0.00;
+        function updateAmount1() {
+            var amount1 = parseFloat(document.getElementById('amount1').value);
+            if (isNaN(amount1)) {
+                amount1 = 0.00;
             }
-            document.getElementById('displayAmount').innerText = amount.toFixed(2);
-            document.getElementById('displayDoubledAmount').innerText = (amount * 2).toFixed(2);
+            document.getElementById('displayAmount1').innerText = amount1.toFixed(2);
+            document.getElementById('displayDoubledAmount1').innerText = (amount1 * 2).toFixed(2);
+        }
+
+        function updateFamily2() {
+            var familyName2 = document.getElementById('familyName2').value;
+            document.getElementById('displayFamilyName2').innerText = familyName2;
+        }
+
+        function updateAmount2() {
+            var amount2 = parseFloat(document.getElementById('amount2').value);
+            if (isNaN(amount2)) {
+                amount2 = 0.00;
+            }
+            document.getElementById('displayAmount2').innerText = amount2.toFixed(2);
+            document.getElementById('displayDoubledAmount2').innerText = (amount2 * 2).toFixed(2);
         }
     </script>
+
+    <br>
+    <center>Copyright 2024 Alter Net Codes Web Software</center>
 
 </body>
 </html>
