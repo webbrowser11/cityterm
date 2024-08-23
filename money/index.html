@@ -3,71 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Family Amount Input</title>
+    <title>Family Money Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .family-container {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .family-name {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .money-input {
+            margin-right: 10px;
+            padding: 5px;
+            width: 100px;
+            font-size: 16px;
+        }
+        .money-display {
+            font-size: 18px;
+            color: #333;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: auto;
+            padding: 10px 0;
+            background-color: #eaeaea;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
 
-    <form>
-        <!-- First Family and Amount -->
-        <label for="familyName1">martin family:</label>
-        <input type="text" id="familyName1" name="familyName1" oninput="updateFamily1()">
-        <br><br>
+    <div class="family-container">
+        <div class="family-name">Martin family</div>
+        <label for="martin-money">Money:</label>
+        <input type="number" id="martin-money" class="money-input" oninput="updateMoney('martin', this.value)">
+        <div id="martin-display" class="money-display">Amount: $0</div>
+    </div>
 
-        <label for="amount1">Amount of Money for Family 1:</label>
-        <input type="text" id="amount1" name="amount1" oninput="updateAmount1()">
-        <br><br>
+    <div class="family-container">
+        <div class="family-name">Nealan family</div>
+        <label for="nealan-money">Money:</label>
+        <input type="number" id="nealan-money" class="money-input" oninput="updateMoney('nealan', this.value)">
+        <div id="nealan-display" class="money-display">Amount: $0</div>
+    </div>
 
-        <!-- Second Family and Amount -->
-        <label for="familyName2">nealan family:</label>
-        <input type="text" id="familyName2" name="familyName2" oninput="updateFamily2()">
-        <br><br>
-
-        <label for="amount2">Amount of Money for Family 2:</label>
-        <input type="text" id="amount2" name="amount2" oninput="updateAmount2()">
-    </form>
-
-    <h2>Bank Account 1</h2>
-    <p>Family Name: <span id="displayFamilyName1">[Enter Family Name 1]</span></p>
-    <p>Entered Amount: $<span id="displayAmount1">0.00</span></p>
-    <p>Doubled Amount: $<span id="displayDoubledAmount1">0.00</span></p>
-
-    <h2>Bank Account 2</h2>
-    <p>Family Name: <span id="displayFamilyName2">[Enter Family Name 2]</span></p>
-    <p>Entered Amount: $<span id="displayAmount2">0.00</span></p>
-    <p>Doubled Amount: $<span id="displayDoubledAmount2">0.00</span></p>
+    <div class="copyright">
+        Copyright 2024 Alter Net Codes Web Software
+    </div>
 
     <script>
-        function updateFamily1() {
-            var familyName1 = document.getElementById('familyName1').value;
-            document.getElementById('displayFamilyName1').innerText = familyName1;
-        }
-
-        function updateAmount1() {
-            var amount1 = parseFloat(document.getElementById('amount1').value);
-            if (isNaN(amount1)) {
-                amount1 = 0.00;
-            }
-            document.getElementById('displayAmount1').innerText = amount1.toFixed(2);
-            document.getElementById('displayDoubledAmount1').innerText = (amount1 * 2).toFixed(2);
-        }
-
-        function updateFamily2() {
-            var familyName2 = document.getElementById('familyName2').value;
-            document.getElementById('displayFamilyName2').innerText = familyName2;
-        }
-
-        function updateAmount2() {
-            var amount2 = parseFloat(document.getElementById('amount2').value);
-            if (isNaN(amount2)) {
-                amount2 = 0.00;
-            }
-            document.getElementById('displayAmount2').innerText = amount2.toFixed(2);
-            document.getElementById('displayDoubledAmount2').innerText = (amount2 * 2).toFixed(2);
+        function updateMoney(family, amount) {
+            document.getElementById(family + '-display').textContent = 'Amount: $' + amount;
         }
     </script>
-
-    <br>
-    <center>Copyright 2024 Alter Net Codes Web Software</center>
 
 </body>
 </html>
