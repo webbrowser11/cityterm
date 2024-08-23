@@ -1,1 +1,40 @@
-<p>do this later</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Amount Input</title>
+</head>
+<body>
+
+    <form>
+        <label for="familyName">Family Name:</label>
+        <input type="text" id="familyName" name="familyName" oninput="updateFamily()">
+        <br><br>
+
+        <label for="amount">Amount of Money:</label>
+        <input type="text" id="amount" name="amount" oninput="updateAmount()">
+    </form>
+
+    <p>Family Name: <span id="displayFamilyName">[Enter Family Name]</span></p>
+    <p>Entered Amount: $<span id="displayAmount">0.00</span></p>
+    <p>Doubled Amount: $<span id="displayDoubledAmount">0.00</span></p>
+
+    <script>
+        function updateFamily() {
+            var familyName = document.getElementById('familyName').value;
+            document.getElementById('displayFamilyName').innerText = familyName;
+        }
+
+        function updateAmount() {
+            var amount = parseFloat(document.getElementById('amount').value);
+            if (isNaN(amount)) {
+                amount = 0.00;
+            }
+            document.getElementById('displayAmount').innerText = amount.toFixed(2);
+            document.getElementById('displayDoubledAmount').innerText = (amount * 2).toFixed(2);
+        }
+    </script>
+
+</body>
+</html>
